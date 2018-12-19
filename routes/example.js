@@ -8,7 +8,7 @@ const Example2 = require('../models/Example2');
 const passport = require('passport');
 
 //protecting the endpoints
-//router.use('/', passport.authenticate('jwt', { session: false, failWithError: true }));
+router.use('/', passport.authenticate('jwt', { session: false, failWithError: true }));
 
 //?
 function validateExample2Id(Example2Id, userId) {
@@ -146,7 +146,6 @@ router.put('/:id', (req, res, next) => {
     err.status = 400;
     return next(err);
   }
-
   
   Promise.all([
     validateExample2Id(Example2Id, userId),

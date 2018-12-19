@@ -21,9 +21,9 @@ const {router: authRouter} = require('./routes/auth');
 const {router: exampleRouter} = require('./routes/example');
 
 //for protecting endpoints
-// const passport = require('passport');
-// const localStrategy = require('./passport/local');
-// const jwtStrategy = require('./passport/jwt');
+const passport = require('passport');
+const localStrategy = require('./passport/local');
+const jwtStrategy = require('./passport/jwt');
 
 
 app.use(
@@ -42,8 +42,8 @@ app.use(
 );
 
 //protecting endpoints
-// passport.use(localStrategy);
-// passport.use(jwtStrategy);
+passport.use(localStrategy);
+passport.use(jwtStrategy);
 
 //basic endpoint to make sure its working
 app.get('/cats',(req,res,next) => {

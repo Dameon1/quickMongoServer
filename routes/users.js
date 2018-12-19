@@ -1,12 +1,21 @@
 'use strict';
 
-
 const express = require('express');
 const router = express.Router();
 const User = require('../models/users');
 
-router.post('/', function(req,res,next) {
- 
+//for testing purposes
+router.get('/',(req,res,next) => {
+  User.find()
+    .then(results => {
+      res.json(results);
+    })
+    .catch(err => {
+      next(err);
+    });
+})
+
+router.post('/', function(req,res,next) { 
 
   const requiredFields = ['username', 'password'];
   const missingField = requiredFields.find(field => !(field in req.body));
@@ -55,6 +64,7 @@ router.post('/', function(req,res,next) {
     });
   }
 
+  //server side requirements for username and password
   const sizedFields = {
     username: {
       min: 1
@@ -76,7 +86,6 @@ router.post('/', function(req,res,next) {
       'max' in sizedFields[field] &&
             req.body[field].trim().length > sizedFields[field].max
   );
-
   if (tooSmallField || tooLargeField) {
     return res.status(422).json({
       code: 422,
@@ -87,9 +96,9 @@ router.post('/', function(req,res,next) {
       location: tooSmallField || tooLargeField
     });
   }
+
   let { username, password, fullname = '' } = req.body;
   fullname = fullname.trim();
-
 
   return User.hashPassword(password)
     .then(digest => {
