@@ -1,19 +1,17 @@
 'use strict';
 
 require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
 
-// Connecting a SQL database using KNEX ('required')
-// const {dbConnect} = require('./db-knex');
 const app = express();
 
 //testing data
 const {catsData, dogsData} = require("./db/seedData");
-
 
 //example routers for endpoints
 const {router: usersRouter} = require('./routes/users');
@@ -25,7 +23,6 @@ const passport = require('passport');
 const localStrategy = require('./passport/local');
 const jwtStrategy = require('./passport/jwt');
 
-
 app.use(
   morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
     skip: (req, res) => process.env.NODE_ENV === 'test'
@@ -34,6 +31,7 @@ app.use(
 
 // Parse request body
 app.use(express.json());
+
 //Cross-Origin
 app.use(
   cors({
@@ -58,21 +56,6 @@ app.use('/api/users', usersRouter);
 app.use('/api/login', authRouter);
 app.use('/api/example', exampleRouter);
 
-function runServer(port = PORT) {
-  const server = app
-    .listen(port, () => {
-      console.info(`App listening on port ${server.address().port}`);
-    })
-    .on('error', err => {
-      console.error('Express failed to start');
-      console.error(err);
-    });
-}
-
-if (require.main === module) {
-  dbConnect();
-  runServer();
-}
 // Catch-all 404
 app.use(function (req, res, next) {
   const err = new Error('Not Found');
@@ -89,5 +72,21 @@ app.use(function (err, req, res, next) {
     error: app.get('env') === 'development' ? err : {}
   });
 });
+
+function runServer(port = PORT) {
+  const server = app
+    .listen(port, () => {
+      console.info(`App listening on port ${server.address().port}`);
+    })
+    .on('error', err => {
+      console.error('Express failed to start');
+      console.error(err);
+    });
+}
+
+if (require.main === module) {
+  dbConnect();
+  runServer();
+}
 
 module.exports = { app };
