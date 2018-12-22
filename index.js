@@ -17,6 +17,7 @@ const {catsData, dogsData} = require("./db/seedData");
 // const {router: usersRouter} = require('./routes/users');
 // const {router: authRouter} = require('./routes/auth');
 const {router: exampleRouter} = require('./routes/example');
+const {router: exampleRouter2} = require('./routes/example2');
 
 //for protecting endpoints for user created accounts
 // const passport = require('passport');
@@ -55,6 +56,7 @@ app.get('/dogs',(req,res,next) => {
 //app.use('/api/users', usersRouter);
 //app.use('/api/login', authRouter);
 app.use('/api/example', exampleRouter);
+app.use('/api/example2', exampleRouter2);
 
 // Catch-all 404
 app.use(function (req, res, next) {

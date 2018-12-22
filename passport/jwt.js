@@ -1,4 +1,6 @@
-'use strict';
+/* Use this file for retrieving validation from User */
+
+/* 'use strict';
 
 const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
 const { JWT_SECRET } = require('../config');
@@ -14,3 +16,4 @@ const jwtStrategy = new JwtStrategy(options,(payload,done) => {
 });
 
 module.exports = jwtStrategy;
+*/

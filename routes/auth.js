@@ -1,31 +1,34 @@
-// 'use strict';
+/* This file is not used for the purpose of this program
+   Use file if you desire to create user accounts */
 
-// const express = require('express');
-// const router = express.Router();
-// const passport = require('passport');
-// const jwt = require('jsonwebtoken');
-// let {JWT_SECRET,JWT_EXPIRY} = require('../config.js');
+/* 'use strict';
 
-// const options = {session: false, failWithError: true};
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+let {JWT_SECRET,JWT_EXPIRY} = require('../config.js');
 
-// const localAuth = passport.authenticate('local', options);
-// const jwtAuth = passport.authenticate('jwt', {session: false, failWithError:true});
+const options = {session: false, failWithError: true};
 
-// function createAuthToken (user) {
-//   return jwt.sign({ user }, JWT_SECRET, {
-//     subject: user.username,
-//     expiresIn: JWT_EXPIRY
-//   });
-// }
+const localAuth = passport.authenticate('local', options);
+const jwtAuth = passport.authenticate('jwt', {session: false, failWithError:true});
 
-// router.post('/', localAuth, function (req, res) {
-//   const authToken = createAuthToken(req.user);
-//   return res.json({authToken});
-// });
+function createAuthToken (user) {
+  return jwt.sign({ user }, JWT_SECRET, {
+    subject: user.username,
+    expiresIn: JWT_EXPIRY
+  });
+}
 
-// router.post('/refresh', jwtAuth, (req,res) => {
-//   const authToken = createAuthToken(req.user);
-//   res.json({authToken});
-// });
+router.post('/', localAuth, function (req, res) {
+  const authToken = createAuthToken(req.user);
+  return res.json({authToken});
+});
 
-// module.exports = {router};
+router.post('/refresh', jwtAuth, (req,res) => {
+  const authToken = createAuthToken(req.user);
+  res.json({authToken});
+});
+
+module.exports = {router}; */

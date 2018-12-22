@@ -1,4 +1,6 @@
-'use strict';
+/* Use this file for initial validation strategy for User */
+
+/* 'use strict';
 
 const { Strategy: LocalStrategy } = require('passport-local');
 const User = require('../models/users');
@@ -36,5 +38,5 @@ const localStrategy = new LocalStrategy((username, password, done) => {
     });
 });
 
-
 module.exports =  localStrategy;
+*/

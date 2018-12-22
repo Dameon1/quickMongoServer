@@ -1,4 +1,7 @@
-'use strict';
+/* This file is not used for the purposes of this program
+   Use file if want to create user accounts WITH validation */
+
+/*  'use strict';
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
@@ -37,3 +40,4 @@ UserSchema.statics.hashPassword = function (password) {
 const User = mongoose.model('User',UserSchema);
 
 module.exports = User;
+*/
