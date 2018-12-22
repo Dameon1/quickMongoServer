@@ -10,18 +10,18 @@ const { dbConnect } = require('./db-mongoose');
 
 const app = express();
 
-//testing data
+//filler testing data 2 arrays with 5 objects each
 const {catsData, dogsData} = require("./db/seedData");
 
 //example routers for endpoints
-const {router: usersRouter} = require('./routes/users');
-const {router: authRouter} = require('./routes/auth');
+// const {router: usersRouter} = require('./routes/users');
+// const {router: authRouter} = require('./routes/auth');
 const {router: exampleRouter} = require('./routes/example');
 
-//for protecting endpoints
-const passport = require('passport');
-const localStrategy = require('./passport/local');
-const jwtStrategy = require('./passport/jwt');
+//for protecting endpoints for user created accounts
+// const passport = require('passport');
+// const localStrategy = require('./passport/local');
+// const jwtStrategy = require('./passport/jwt');
 
 app.use(
   morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
@@ -40,8 +40,8 @@ app.use(
 );
 
 //protecting endpoints
-passport.use(localStrategy);
-passport.use(jwtStrategy);
+//passport.use(localStrategy);
+//passport.use(jwtStrategy);
 
 //basic endpoint to make sure its working
 app.get('/cats',(req,res,next) => {
@@ -51,9 +51,9 @@ app.get('/dogs',(req,res,next) => {
   res.json(dogsData);
 })
 
-//create routers for this to work aka mounting
-app.use('/api/users', usersRouter);
-app.use('/api/login', authRouter);
+//mounting routers here
+//app.use('/api/users', usersRouter);
+//app.use('/api/login', authRouter);
 app.use('/api/example', exampleRouter);
 
 // Catch-all 404

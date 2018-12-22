@@ -14,4 +14,4 @@
 - run 'npm start' in your teminal.
 
 ## Attention
-- The endpoints are protected already
+- The code to protect endpoints through authentication has been commented out
