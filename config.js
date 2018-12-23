@@ -18,5 +18,5 @@ module.exports = {
   JWT_EXPIRY: process.env.JWT_EXPIRY || 'Testing String',
 
   //Test Database here
-  TEST_DATABASE_URL: process.env.TEST_DATABASE_URL
+  TEST_DATABASE_URL: process.env.TEST_DATABASE_URL || 'mongodb://dev:d3vd3v@ds042688.mlab.com:42688/testingmongo'
 };
