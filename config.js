@@ -11,12 +11,12 @@ module.exports = {
   CLIENT_ORIGIN: process.env.CLIENT_ORIGIN || 'http://localhost:3000',
   
   //create a database using mLab or another mongo client and put uri here
-  DATABASE_URL: process.env.DATABASE_URL ,
+  DATABASE_URL: process.env.DATABASE_URL  || 'Testing String',
   
   //for protecting endpoints
-  JWT_SECRET: process.env.JWT_SECRET ,
-  JWT_EXPIRY: process.env.JWT_EXPIRY,
+  JWT_SECRET: process.env.JWT_SECRET || 'Testing String',
+  JWT_EXPIRY: process.env.JWT_EXPIRY || 'Testing String',
 
   //Test Database here
-  //TEST_DATABASE_URL: process.env.TEST_DATABASE_URL
+  TEST_DATABASE_URL: process.env.TEST_DATABASE_URL
 };

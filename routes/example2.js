@@ -42,7 +42,7 @@ router.get('/', (req, res, next) => {
   
   if (searchTerm) {
     // filter.title = { $regex: searchTerm };
-    filter.$or = [{ 'title': { $regex: searchTerm } }, { 'content': { $regex: searchTerm } }];
+    filter.$or = [{ 'name': { $regex: searchTerm } }, { 'content': { $regex: searchTerm } }];
   }
 
   if (TestExample_1Id) {

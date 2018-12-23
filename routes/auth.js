@@ -1,7 +1,7 @@
 /* This file is not used for the purpose of this program
    Use file if you desire to create user accounts */
 
-/* 'use strict';
+ 'use strict';
 
 const express = require('express');
 const router = express.Router();
@@ -31,4 +31,4 @@ router.post('/refresh', jwtAuth, (req,res) => {
   res.json({authToken});
 });
 
-module.exports = {router}; */
+module.exports = {router}; 

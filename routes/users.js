@@ -1,7 +1,7 @@
 /* This file is not used for the purpose of this program
    Use file if you desire to create user accounts */
 
-/*
+
 
 'use strict';
 
@@ -126,4 +126,4 @@ router.post('/', function(req,res,next) {
     });
 });
 
-module.exports = {router};    */
+module.exports = {router};    

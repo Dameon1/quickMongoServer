@@ -53,10 +53,12 @@ app.get('/dogs',(req,res,next) => {
 })
 
 //mounting routers here
-//app.use('/api/users', usersRouter);
-//app.use('/api/login', authRouter);
 app.use('/api/example', exampleRouter);
 app.use('/api/example2', exampleRouter2);
+
+//these routes are used for testing with mocha and chai and are not used in the functionality of this program
+//app.use('/api/users', usersRouter);
+//app.use('/api/login', authRouter);
 
 // Catch-all 404
 app.use(function (req, res, next) {
@@ -91,4 +93,4 @@ if (require.main === module) {
   runServer();
 }
 
-module.exports = { app };
+module.exports = app;
