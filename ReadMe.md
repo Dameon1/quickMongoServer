@@ -1,5 +1,6 @@
 # Quick Server with Mongo
 
+[![Build Status](https://travis-ci.org/Dameon1/quickMongoServer.svg?branch=master)](https://travis-ci.org/Dameon1/quickMongoServer)
 ## Instructions
 - Clone this repository into your directory of choice.
 - run 'npm install' in your teminal from directory root.
