@@ -8,7 +8,7 @@ const TestExample_1Schema = mongoose
     content: String,
     example: String,
     TestExample_2Id: {  type: mongoose.Schema.Types.ObjectId, 
-      ref: 'testExample_2'},
+      ref: 'TestExample_2'},
     
       /* To add a user to Schema  
     userId: { type: mongoose.Schema.Types.ObjectId, 

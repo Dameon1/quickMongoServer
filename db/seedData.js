@@ -97,4 +97,3 @@ const dogsData = [
 ];
 
 module.exports = {catsData, dogsData};
-
