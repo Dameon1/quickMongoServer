@@ -13,7 +13,7 @@
     DATABASE_URL="ENTER DATABASE URL"
 
 - Run 'npm start' in your terminal to get the application up and running with Nodemon.
-- Optionally you can run 'npm test' to after to ensure everything is working. 
+- Optionally you can run 'npm test' after initial startup to ensure everything is working. 
 
 ## Attention
 - The code to protect endpoints through authentication has been commented out
